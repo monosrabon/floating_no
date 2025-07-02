@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Go Out With Me</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fefefe;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+        position: relative;
+      }
+
+      .header_text {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .gif_container img {
+        width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .buttons {
+        position: relative;
+        height: 200px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute; /* Necessary for moving */
+      }
+
+      #yesButton {
+        left: 100px;
+      }
+
+      #noButton {
+        left: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text">Let's go out for a tea, shall we?</h1>
+      </div>
+      <div class="gif_container">
+        <img
+          src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif"
+          alt="Cute animated illustration"
+        />
+      </div>
+
+      <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+        <button
+          class="btn"
+          id="noButton"
+          onmouseover="moveButton()"
+          onclick="moveButton()"
+        >
+          No
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function nextPage() {
+        window.location.href = "yes.html";
+      }
+
+      function moveButton() {
+        const button = document.getElementById("noButton");
+        const container = document.querySelector(".buttons");
+        const maxX = container.clientWidth - button.offsetWidth;
+        const maxY = container.clientHeight - button.offsetHeight;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+      }
+    </script>
+  </body>
+</html>
